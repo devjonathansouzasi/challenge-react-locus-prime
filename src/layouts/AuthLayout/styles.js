@@ -21,15 +21,25 @@ export const Content = styled.div`
 	width: 100%;
 	max-width: 400px;
 	height: auto;
-	padding: 10px 20px 20px;
+	padding: 20px 30px 25px;
 	border-radius: 4px;
 	background-color: ${colors.white};
 `;
 
 export const Title = styled.p`
+	margin-bottom: 10px;
 	font-size: 2.5em;
 	font-weight: bold;
 	color: ${colors.primary};
+`;
+
+export const Subtitle = styled.p`
+	align-self: stretch;
+	margin-bottom: 15px;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+	color: ${colors.gray};
 `;
 
 export const Form = styled(unForm)`

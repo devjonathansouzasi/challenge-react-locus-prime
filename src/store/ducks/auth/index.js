@@ -8,9 +8,9 @@ import {
 /* Types & Action Creators */
 
 const { Types, Creators } = createActions({
-	loginRequest: ["email", "password"],
+	loginRequest: ["payload"],
 	loginSuccess: ["user"],
-	registerRequest: ["name", "email", "password"],
+	registerRequest: ["payload"],
 	registerSuccess: ["user"],
 	logout: null,
 	isLoading: null,
@@ -24,6 +24,7 @@ export const AuthActions = Creators;
 
 export const INITIAL_STATE = {
 	user: {
+		id: undefined,
 		name: undefined,
 		email: undefined
 	},
@@ -33,16 +34,16 @@ export const INITIAL_STATE = {
 /* Reducers */
 
 const handleLoginSuccess = produce((draft, action) => {
+	draft.user.id = action.user.id;
 	draft.user.name = action.user.name;
 	draft.user.email = action.user.email;
-	draft.user.token = action.user.token;
 	draft.isLoading = false;
 });
 
 const handleRegisterSuccess = produce((draft, action) => {
+	draft.user.id = action.user.id;
 	draft.user.name = action.user.name;
 	draft.user.email = action.user.email;
-	draft.user.token = action.user.token;
 	draft.isLoading = false;
 });
 
@@ -52,10 +53,10 @@ const handleIsLoading = produce(draft => {
 
 const handleHasError = produce(draft => {
 	draft.isLoading = false;
-	draft.hasError = true;
 });
 
 const handleLogout = produce(draft => {
+	draft.user.id = undefined;
 	draft.user.name = undefined;
 	draft.user.email = undefined;
 	draft.isLoading = false;
