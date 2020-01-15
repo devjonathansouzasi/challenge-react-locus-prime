@@ -15,7 +15,7 @@ export function* login({ payload }) {
 		const user = yield getUserByEmailAndPassword(email, password);
 		if (user === null) {
 			showAlert("Usuário não encontrado.", "error");
-			put(AuthActions.hasError());
+			yield put(AuthActions.hasError());
 			return;
 		}
 
