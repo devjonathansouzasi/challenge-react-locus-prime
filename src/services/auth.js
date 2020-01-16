@@ -1,12 +1,12 @@
-import api from "./api";
+import { baseApi } from "./api";
 import { compareHash } from "./hash";
 
 export async function userExists(email) {
-	const response = await api.get(`users?email=${email}`);
+	const response = await baseApi.get(`users?email=${email}`);
 	return response.data.length > 0;
 }
 export async function getUserByEmailAndPassword(email, password) {
-	const response = await api.get(`users?email=${email}`);
+	const response = await baseApi.get(`users?email=${email}`);
 	if (response.data.length === 0) {
 		return null;
 	}

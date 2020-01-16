@@ -1,7 +1,11 @@
 import axios from "axios";
 
-const api = axios.create({
+const baseApi = axios.create({
 	baseURL: "http://localhost:3333"
 });
 
-export default api;
+const githubApi = axios.create({
+	baseURL: "https://api.github.com/"
+});
+
+export { baseApi, githubApi };

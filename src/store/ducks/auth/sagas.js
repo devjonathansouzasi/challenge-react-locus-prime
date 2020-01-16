@@ -1,6 +1,6 @@
 import { all, put, call, takeLatest } from "redux-saga/effects";
 
-import api from "~/services/api";
+import { baseApi } from "~/services/api";
 import { userExists, getUserByEmailAndPassword } from "~/services/auth";
 import { getHash } from "~/services/hash";
 import { rootHistory } from "~/services/historys";
@@ -42,8 +42,15 @@ export function* register({ payload }) {
 			return;
 		}
 		const hashedPassword = yield getHash(password);
-		yield call(api.post, "users", { name, email, password: hashedPassword });
-		yield put(AuthActions.registerSuccess({ name, email }));
+		const userWithId = yield call(baseApi.post, "users", {
+			name,
+			email,
+			password: hashedPassword
+		});
+
+		yield put(
+			AuthActions.registerSuccess({ id: userWithId.data.id, name, email })
+		);
 
 		const message = `Conta criada. Bem vindo(a) ${name}`;
 		showAlert(message, "success");

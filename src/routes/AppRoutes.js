@@ -10,7 +10,7 @@ export function AppRoutes() {
 		<Router history={appHistory}>
 			<Switch>
 				<Route path="/" exact component={Main} />
-				<Route path="/details" component={Details} />
+				<Route path="/details/:id" component={Details} />
 				<Route path="*" component={() => <Redirect to="/" />} />
 			</Switch>
 		</Router>

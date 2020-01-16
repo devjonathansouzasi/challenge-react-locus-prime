@@ -35,4 +35,5 @@ export const LogoutButton = styled.button`
 	border: none;
 	color: ${colors.gray};
 	font-weight: bold;
+	background-color: transparent;
 `;

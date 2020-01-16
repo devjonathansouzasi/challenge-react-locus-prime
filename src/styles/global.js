@@ -16,10 +16,10 @@ export const GlobalStyle = createGlobalStyle`
   #root {
     height: 100vh !important;
     font-size: 15px;
+		background-color: ${colors.lightgray};
 	}
 
   body {
-    overflow: hidden;
     -webkit-font-smoothing: antialiased !important;
   }
 
