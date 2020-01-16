@@ -30,6 +30,7 @@
 Para rodar o projeto em sua maquina.
 
 1. Clone o repositorio e acesse a pasta raiz.
+   2 Troque para a branch develop com **git checkout develop**.
 2. execute **yarn**.
 3. Crie um arquivo db.json na raiz. contendo o seguinte valor:
 
@@ -40,7 +41,7 @@ Para rodar o projeto em sua maquina.
 }
 ```
 
-4. execute **yarn start**.
+5. execute **yarn start**.
 
 # Dicas
 
